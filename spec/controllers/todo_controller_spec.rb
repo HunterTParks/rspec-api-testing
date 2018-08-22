@@ -8,7 +8,7 @@ RSpec.describe TodoController, :type => :controller do
 
     it "will return a list of items" do
       item = Todo.new(title: "Clean the dishes", text: "Complete by 5 PM")
-      response.body.should contain(item)
+      expect(response.body).to eq(item)
     end
   end
 end
