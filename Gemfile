@@ -16,9 +16,6 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Rspec for testing and TDD
-gem 'rspec'
-
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -34,6 +31,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Use Rspec for testing and TDD
+  gem 'rspec-rails'
+
 end
 
 group :development do
