@@ -6,7 +6,7 @@ RSpec.describe "todo", :type => :request do
   before do
     @todo = @todo.to_json
   end
-  
+
   context "Get todo#Index" do
     before do
       get "/todo"
@@ -15,7 +15,7 @@ RSpec.describe "todo", :type => :request do
       expect(response).to have_http_status(200)
     end
     it "returns a list of Todos" do
-      expect(@todo).to eq(response.body)
+      expect(JSON.parse(response.body).size).to eq(20)
     end
   end
 end
