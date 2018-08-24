@@ -10,9 +10,10 @@ RSpec.describe TodoController, :type => :controller do
       get :index
     end
 
-    it "will return any context successfully"
-    it "will return a list of items" do
+    it "will return any context successfully" do
       expect(response).to be_successful
+    end
+    it "will return a list of items" do
       expect(response.body).to eq(subject.response.body)
     end
   end
@@ -22,7 +23,9 @@ RSpec.describe TodoController, :type => :controller do
       get :show, params: { id: 1 }
     end
 
-    it "will return any content successfully"
+    it "will return any content successfully" do
+      expect(response).to be_successful
+    end
     it "will return one item"
   end
 end
