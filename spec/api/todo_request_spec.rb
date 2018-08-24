@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Get/edit/delete todos", :type => :request do
+RSpec.describe "Todo Requests", :type => :request do
   let!(:todos) { FactoryBot.create_list(:todo, 20)}
 
   context "When a user requests todo#Index it..." do
