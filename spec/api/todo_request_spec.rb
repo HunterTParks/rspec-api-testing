@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "todo", :type => :request do
+  before do
+    @todo = FactoryBot.create(:todo)
+    @todo = @todo.as_json
+  end
   context "Get todo#Index" do
     before do
       get "/todo"
