@@ -17,6 +17,10 @@ RSpec.describe TodoController, :type => :controller do
   end
 
   context "GET todo#show" do
+    before do
+      get :show, params: { id: 1 }
+    end
+
     it "will return one item"
   end
 end
