@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe TodoController, :type => :controller do
-  context "GET /index" do
-    before do
-      get :index
-    end
+  before do
+    subject = FactoryBot.create(:todo)
+  end
 
+  context "GET /index" do
     it "will return a list of items" do
-      item = Todo.new(title: "Clean the dishes", text: "Complete by 5 PM")
-      expect(response.body).to eq(item)
+      get :index
+      expect(response).to be_successful
+      expect(response.body).to eq(subject.response.body)
     end
   end
 end
