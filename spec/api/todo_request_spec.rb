@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "todo", :type => :request do
   before do
     @todo = FactoryBot.create(:todo)
-    @todo = @todo.as_json
+    @todo = @todo.to_json
   end
   context "Get todo#Index" do
     before do
@@ -12,6 +12,8 @@ RSpec.describe "todo", :type => :request do
     it "returns a successful response" do
       expect(response).to have_http_status(200)
     end
-    it "returns a list of Todos"
+    it "returns a list of Todos" do
+      expect(@todo).to eq(response.body)
+    end
   end
 end
