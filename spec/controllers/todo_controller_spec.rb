@@ -6,8 +6,11 @@ RSpec.describe TodoController, :type => :controller do
   end
 
   context "GET todo#index" do
-    it "will return a list of items" do
+    before do
       get :index
+    end
+
+    it "will return a list of items" do
       expect(response).to be_successful
       expect(response.body).to eq(subject.response.body)
     end
