@@ -16,6 +16,9 @@ RSpec.describe "Todo Requests", :type => :request do
   end
 
   context "When a user requests todo#Show it..." do
+    before do
+      get "/todo/1"
+    end
     it "returns a successful response"
     it "returns one todo item"
   end
