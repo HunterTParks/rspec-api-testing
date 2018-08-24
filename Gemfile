@@ -35,7 +35,7 @@ group :development, :test do
   # Use Rspec for testing and TDD
   gem 'rspec-rails'
   # Use FactoryBot for generating fake ruby objects to test with using RSpec
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
 
 end
 
