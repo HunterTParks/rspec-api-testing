@@ -19,7 +19,9 @@ RSpec.describe "Todo Requests", :type => :request do
     before do
       get "/todo/1"
     end
-    it "returns a successful response"
+    it "returns a successful response" do
+      expect(response).to have_http_status(200)
+    end
     it "returns one todo item"
   end
 end
