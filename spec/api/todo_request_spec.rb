@@ -5,7 +5,9 @@ RSpec.describe "todo", :type => :request do
     before do
       get "/index"
     end
-    it "returns a successful response"
+    it "returns a successful response" do
+      expect(response).to have_http_status(200)
+    end
     it "returns a list of Todos"
   end
 end
