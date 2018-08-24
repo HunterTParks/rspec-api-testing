@@ -5,7 +5,7 @@ RSpec.describe TodoController, :type => :controller do
     subject = FactoryBot.create(:todo)
   end
 
-  context "GET /index" do
+  context "GET todo#index" do
     it "will return a list of items" do
       get :index
       expect(response).to be_successful
@@ -13,7 +13,7 @@ RSpec.describe TodoController, :type => :controller do
     end
   end
 
-  context "GET /show" do
+  context "GET todo#show" do
     it "will return one item"
   end
 end
