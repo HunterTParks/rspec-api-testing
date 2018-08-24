@@ -12,4 +12,8 @@ RSpec.describe TodoController, :type => :controller do
       expect(response.body).to eq(subject.response.body)
     end
   end
+
+  context "GET /show" do
+    it "will return one item"
+  end
 end
