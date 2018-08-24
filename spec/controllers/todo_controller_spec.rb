@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe TodoController, :type => :controller do
   before do
-    subject = FactoryBot.create(:todo)
+    @todo = FactoryBot.create(:todo)
+    @todo = @todo.to_json
   end
 
   context "GET todo#index" do
@@ -14,7 +15,7 @@ RSpec.describe TodoController, :type => :controller do
       expect(response).to be_successful
     end
     it "will return a list of items" do
-      expect(response.body).to eq(subject.response.body)
+      expect(response.body).to eq(@todo)
     end
   end
 
