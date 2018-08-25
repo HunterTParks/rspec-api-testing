@@ -9,4 +9,10 @@ class TodoController < ApplicationController
     @todo = Todo.find(params[:id])
     render json: @todo
   end
+
+  private
+
+  def json_response(object)
+
+  end
 end
