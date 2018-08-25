@@ -2,17 +2,17 @@ class TodoController < ApplicationController
   # GET /index
   def index
     @todos = Todo.all
-    render json: @todos
+    json_response(@todos)
   end
 
   def show
     @todo = Todo.find(params[:id])
-    render json: @todo
+    json_response(@todo)
   end
 
   private
 
   def json_response(object)
-
+    render json: object, status: :ok
   end
 end
