@@ -9,4 +9,14 @@ class TodoController < ApplicationController
     @todo = Todo.find(params[:id])
     json_response(@todo)
   end
+
+  def create
+    @todo = Todo.new(list_params)
+  end
+
+  private
+
+  def list_params
+    params.require(:todo).permit(:title, :text)
+  end
 end
