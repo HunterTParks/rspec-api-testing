@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Get all todos route", :type => :request do
   let!(:todos) { FactoryBot.create_list(:todo, 20)}
 
-  context "When a response is successful it..." do
+  context "When a resource is successful it..." do
     before do
       get "/todo"
     end
