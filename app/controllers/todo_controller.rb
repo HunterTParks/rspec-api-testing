@@ -12,6 +12,7 @@ class TodoController < ApplicationController
 
   def create
     @todo = Todo.new(list_params)
+    json_response(@todo)
   end
 
   private
