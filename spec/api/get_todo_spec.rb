@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Todo Requests", :type => :request do
+RSpec.describe "Get all todos route", :type => :request do
   let!(:todos) { FactoryBot.create_list(:todo, 20)}
 
-  context "When a user requests todo#Index it..." do
+  context "When a response is successful it..." do
     before do
       get "/todo"
     end
