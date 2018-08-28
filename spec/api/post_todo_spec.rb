@@ -16,4 +16,9 @@ RSpec.describe 'Post todo routes', :type => :request do
       expect(JSON.parse(response.body)['text']).to eq('This is a texting text for Star wars')
     end
   end
+
+  context "When a request is invalid" do
+    it "returns an http response (400)"
+    it "returns a valid error message"
+  end
 end
