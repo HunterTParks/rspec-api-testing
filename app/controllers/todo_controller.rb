@@ -17,6 +17,6 @@ class TodoController < ApplicationController
   private
 
   def list_params
-    params.require(:todo).permit(:title, :text)
+    params.permit(:title, :text)
   end
 end
