@@ -21,7 +21,9 @@ RSpec.describe 'Post todo routes', :type => :request do
     before do
       post "/todo", params: { :title => 'Star Wars' }
     end
-    it "returns an http response (400)"
+    it "returns an http response (400)" do
+      expect(response).to have_http_status(400)
+    end
     it "returns a valid error message"
   end
 end
