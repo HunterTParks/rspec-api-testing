@@ -22,14 +22,4 @@ RSpec.describe "Get all todos route", :type => :request do
   context "When a resource is not owned" do
     it "returns an http response (404)"
   end
-
-  context "When a user requests todo#create it..." do
-    before do
-      get"/todo"
-    end
-    it "returns a successful response"  do
-      expect(response).to have_http_status(200)
-    end
-    it "successfully creates a Todo item"
-  end
 end
