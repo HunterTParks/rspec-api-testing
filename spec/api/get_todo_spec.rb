@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Get all todos route", :type => :request do
   let!(:todos) { FactoryBot.create_list(:todo, 20)}
+  before do
+    get "/todo"
+  end
 
   context "When a resource is successful it..." do
-    before do
-      get "/todo"
-    end
     it "returns an http response (200)" do
       expect(response).to have_http_status(200)
     end
