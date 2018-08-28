@@ -19,6 +19,10 @@ RSpec.describe "Get all todos route", :type => :request do
     it "returns an http response (400)"
   end
 
+  context "When a resource is not owned" do
+    it "returns an http response (404)"
+  end
+
   context "When a user requests todo#Show it..." do
     before do
       get "/todo/1"
