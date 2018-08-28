@@ -28,5 +28,7 @@ RSpec.describe "Todo Requests", :type => :request do
     before do
       get"/todo"
     end
+    it "returns a successful response"
+    it "successfully creates a Todo item"
   end
 end
