@@ -12,6 +12,8 @@ RSpec.describe 'Post todo routes', :type => :request do
     it "returns the title of Todo item" do
       expect(JSON.parse(response.body)['title']).to eq('Star Wars')
     end
-    it "returns the text of Todo item"
+    it "returns the text of Todo item" do
+      expect(JSON.parse(response.body)['text']).to eq('This is a texting text for Star wars')
+    end
   end
 end
