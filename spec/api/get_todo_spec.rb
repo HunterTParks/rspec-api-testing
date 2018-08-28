@@ -7,7 +7,7 @@ RSpec.describe "Get all todos route", :type => :request do
     before do
       get "/todo"
     end
-    it "returns a successful response" do
+    it "returns an http response (200)" do
       expect(response).to have_http_status(200)
     end
     it "returns a list of Todos" do
