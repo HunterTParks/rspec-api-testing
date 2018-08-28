@@ -23,15 +23,6 @@ RSpec.describe "Get all todos route", :type => :request do
     it "returns an http response (404)"
   end
 
-  context "When a user requests todo#Show it..." do
-    before do
-      get "/todo/1"
-    end
-    it "returns a successful response" do
-      expect(response).to have_http_status(200)
-    end
-  end
-
   context "When a user requests todo#create it..." do
     before do
       get"/todo"
