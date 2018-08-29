@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Todo model", :type => :model do
   context "When a new Todo item is created it..." do
     it "is valid with valid attributes" do
-      expect(Todo.new).to be_valid
+      expect(Todo.new(title: 'Star Wars', text: 'Is a good movie')).to be_valid
     end
 
     it "is not valid without a title" do
