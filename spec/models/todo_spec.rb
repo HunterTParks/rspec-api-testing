@@ -8,12 +8,12 @@ RSpec.describe "Todo model", :type => :model do
 
     it "is not valid without a title" do
       item = Todo.new(title: nil)
-      expect(item).to be_valid
+      expect(item).to_not be_valid
     end
 
     it "is not valid without a text body" do
       item = Todo.new(text: nil)
-      expect(item).to be_valid
+      expect(item).to_not be_valid
     end
   end
 end
