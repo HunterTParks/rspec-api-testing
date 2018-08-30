@@ -2,7 +2,11 @@ class TodoController < ApplicationController
   # GET /index
   def index
     @todos = Todo.all
-    json_response(@todos)
+    if @todos.empty?
+      head :no_content
+    else
+      json_response(@todos)
+    end
   end
 
   def show
