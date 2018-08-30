@@ -16,6 +16,7 @@ RSpec.describe "Get all todos route", :type => :request do
 
   context "When a resource is not found it..." do
     it "returns an http response (204)" do
+      get "/todo"
       expect(response).to have_http_status(204)
     end
   end
