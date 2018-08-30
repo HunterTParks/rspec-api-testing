@@ -19,7 +19,7 @@ RSpec.describe 'Post todo routes', :type => :request do
 
   context "When a request is invalid" do
     before do
-      post "/todo", params: { :title => 'Star Wars' }
+      post "/todo", params: { :title => 'Star Wars', :text => nil}
     end
     it "returns an http response (400)" do
       expect(response).to have_http_status(400)

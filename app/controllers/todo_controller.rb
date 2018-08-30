@@ -11,8 +11,12 @@ class TodoController < ApplicationController
   end
 
   def create
-    @todo = Todo.new(list_params)
-    json_response(@todo)
+    @todo = Todo.create(list_params)
+    if @todo.valid?
+      json_response(@todo)
+    else
+      head :bad_request
+    end
   end
 
   private
