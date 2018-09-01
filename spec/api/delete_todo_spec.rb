@@ -11,6 +11,7 @@ RSpec.describe "DELETE Todo items", :type => :request do
 
   context "When a request is invalid" do
     it "returns an http response (400)" do
+      delete "/todo/1"
       expect(response).to have_http_status(400)
     end
     it "returns a valid error message"
