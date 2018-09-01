@@ -23,6 +23,16 @@ class TodoController < ApplicationController
     end
   end
 
+  def destroy
+    @todo = Todo.find(params[:id])
+    if @todo.valid?
+
+    else
+      @todo.destroy
+      head :no_content
+    end
+  end
+
   private
 
   def list_params
