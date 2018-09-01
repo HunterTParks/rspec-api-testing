@@ -26,8 +26,6 @@ class TodoController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     if @todo.valid?
-
-    else
       @todo.destroy
       head :no_content
     end
