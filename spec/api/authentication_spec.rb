@@ -7,7 +7,10 @@ RSpec.describe "Authentication Requests", type: :request do
   end
 
   context "During User authentication it..." do
-    it "returns an http response (401) when authenticated incorrectly"
+    it "returns an http response (401) when authenticated incorrectly" do
+      get api_client_path(@client)
+      expect(response.status).to have_http_status(401)
+    end
     it "returns an authentication code when you authenticate correctly"
     it "returns an http response (200) when you sign in"
     it "returns a token and grants user access to restricted page"
