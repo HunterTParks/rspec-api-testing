@@ -12,6 +12,8 @@ RSpec.describe "Authentication Requests", type: :request do
       expect(response).to have_http_status(401)
     end
     it "returns an authentication code when you authenticate correctly" do
+      # 'login' is from the helper 'login_helper' and it sends a POST request
+      # with user's login parameters created by FactoryBot
       login
       expect(response.has_header?('access-token')).to eq(true)
     end
