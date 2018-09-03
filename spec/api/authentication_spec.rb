@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'login_helper'
 
 RSpec.describe "Authentication Requests", type: :request do
   before(:each) do
@@ -10,7 +11,10 @@ RSpec.describe "Authentication Requests", type: :request do
       get "/todo"
       expect(response).to have_http_status(401)
     end
-    it "returns an authentication code when you authenticate correctly"
+    it "returns an authentication code when you authenticate correctly" do
+      login
+      expect(response.has_header?('access-token')).to eq(true)
+    end
     it "returns an http response (200) when you sign in"
     it "returns a token and grants user access to restricted page"
     it "returns an http response (402) when accessing a restricted page without an authentication token"
