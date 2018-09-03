@@ -1,4 +1,6 @@
 class TodoController < ApplicationController
+  before_action :authenticate_user!
+
   # GET /index
   def index
     @todos = Todo.all
