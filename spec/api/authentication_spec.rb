@@ -3,13 +3,12 @@ require 'rails_helper'
 RSpec.describe "Authentication Requests", type: :request do
   before(:each) do
     @current_user = FactoryBot.create(:user)
-    @client = FactoryBot.create :client
   end
 
   context "During User authentication it..." do
     it "returns an http response (401) when authenticated incorrectly" do
-      get api_client_path(@client)
-      expect(response.status).to have_http_status(401)
+      get "/todo"
+      expect(response).to have_http_status(401)
     end
     it "returns an authentication code when you authenticate correctly"
     it "returns an http response (200) when you sign in"
