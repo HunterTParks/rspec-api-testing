@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Authentication Requests", type: :request do
   before(:each) do
     @current_user = FactoryBot.create(:user)
-    @client = FactoryBoy.create :client
+    @client = FactoryBot.create :client
   end
 
   context "During User authentication it..." do
