@@ -3,7 +3,9 @@ require 'login_helper'
 
 RSpec.describe "Authentication Requests", type: :request do
   before(:each) do
-    @current_user = FactoryBot.create(:user)
+    @current_user = FactoryBot.build(:user)
+    @current_user.skip_confirmation!
+    @current_user.save!
   end
 
   context "During User authentication it..." do
