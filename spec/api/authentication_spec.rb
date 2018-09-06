@@ -1,13 +1,13 @@
 require 'rails_helper'
 require 'login_helper'
+require 'create_user_helper'
 
 RSpec.describe "Authentication Requests", type: :request do
   before(:each) do
     # Create users and then skip the email confirmation before
-    # saving into the database.
-    @current_user = FactoryBot.build(:user)
-    @current_user.skip_confirmation!
-    @current_user.save!
+    # saving into the database. 'create_user' is from the
+    # helper 'create_user_helper'
+    create_user
   end
 
   context "During User authentication it..." do
