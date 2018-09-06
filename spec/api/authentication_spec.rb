@@ -26,6 +26,5 @@ RSpec.describe "Authentication Requests", type: :request do
       expect(response).to have_http_status(200)
     end
     it "returns a token and grants user access to restricted page"
-    it "returns an http response (402) when accessing a restricted page without an authentication token"
   end
 end
