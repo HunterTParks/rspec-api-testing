@@ -21,7 +21,10 @@ RSpec.describe "Authentication Requests", type: :request do
       login
       expect(response.has_header?('access-token')).to eq(true)
     end
-    it "returns an http response (200) when you sign in"
+    it "returns an http response (200) when you sign in" do
+      login
+      expect(response).to have_http_status(200)
+    end
     it "returns a token and grants user access to restricted page"
     it "returns an http response (402) when accessing a restricted page without an authentication token"
   end
