@@ -23,6 +23,7 @@ RSpec.describe "Authentication Requests", type: :request do
     end
     it "returns an http response (200) when you sign in" do
       login
+      get "/todo"
       expect(response).to have_http_status(200)
     end
     it "returns a token and grants user access to restricted page"
