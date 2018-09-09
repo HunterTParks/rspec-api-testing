@@ -24,6 +24,9 @@ RSpec.describe "Authentication Requests", type: :request do
     end
     it "returns a token and grants user access to restricted page" do
       login
+      # 'get_auth_params' is from the helper 'login_helper' and it
+      # gets the authentication token from the login response. It
+      # will then be put into a GET request so the user can receive the data.
       auth_params = get_auth_params(response)
       get "/todo", headers: auth_params
       expect(response).to have_http_status(200)
