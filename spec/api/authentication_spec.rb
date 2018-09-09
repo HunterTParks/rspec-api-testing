@@ -8,6 +8,7 @@ RSpec.describe "Authentication Requests", type: :request do
     # saving into the database. 'create_user' is from the
     # helper 'create_user_helper'
     create_user
+    FactoryBot.create(:todo)
   end
 
   context "During User authentication it..." do
@@ -21,11 +22,11 @@ RSpec.describe "Authentication Requests", type: :request do
       login
       expect(response.has_header?('access-token')).to eq(true)
     end
-    it "returns an http response (200) when you sign in" do
+    it "returns a token and grants user access to restricted page" do
       login
-      get "/todo"
+      auth_params = get_auth_params(response)
+      get "/todo", headers: auth_params
       expect(response).to have_http_status(200)
     end
-    it "returns a token and grants user access to restricted page"
   end
 end
