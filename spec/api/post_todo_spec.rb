@@ -1,9 +1,14 @@
 require 'rails_helper'
+require 'login_helper'
+require 'create_user_helper'
 
 RSpec.describe 'Post todo routes', :type => :request do
   context "When a user submits a request it..." do
-    before do
-      post "/todo", params: { :title => 'Star Wars', :text => 'This is a texting text for Star wars'}
+    before(:each) do
+      create_user
+      login
+      auth_params = get_auth_params(response)
+      post "/todo", params: { :title => 'Star Wars', :text => 'This is a texting text for Star wars'}, headers: auth_params
     end
 
     it "returns an http response (200)" do
@@ -18,8 +23,11 @@ RSpec.describe 'Post todo routes', :type => :request do
   end
 
   context "When a request is invalid" do
-    before do
-      post "/todo", params: { :title => 'Star Wars', :text => nil}
+    before(:each) do
+      create_user
+      login
+      auth_params = get_auth_params(response)
+      post "/todo", params: { :title => 'Star Wars', :text => nil}, headers: auth_params
     end
     it "returns an http response (400)" do
       expect(response).to have_http_status(400)
