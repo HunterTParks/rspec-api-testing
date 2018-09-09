@@ -8,7 +8,7 @@ RSpec.describe "Authentication Requests", type: :request do
     # saving into the database. 'create_user' is from the
     # helper 'create_user_helper'
     create_user
-    FactoryBot.create(:todo)
+    FactoryBot.create_list(:todo, 20)
   end
 
   context "During User authentication it..." do
