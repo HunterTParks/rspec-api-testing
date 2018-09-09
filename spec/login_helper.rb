@@ -14,7 +14,7 @@ def get_auth_params(response)
     'client' => client,
     'uid' => uid,
     'expiry' => expiry,
-    'token-type' => token-type
+    'token-type' => token_type
   }
 
   auth_params
