@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Todo model", :type => :model do
+RSpec.describe Todo, :type => :model do
+  context "In general, it..." do
+    it { should belong_to(:group) }
+  end
+
   context "When a new Todo item is created it..." do
     it "is valid with valid attributes" do
       expect(Todo.new(title: 'Star Wars', text: 'Is a good movie')).to be_valid
