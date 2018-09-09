@@ -30,9 +30,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Devise for User Authentication
 gem 'devise'
-
 gem 'omniauth'
-
 gem 'devise_token_auth'
 
 group :development, :test do
@@ -43,6 +41,9 @@ group :development, :test do
   gem 'rspec-rails'
   # Use FactoryBot for generating fake ruby objects to test with using RSpec
   gem 'factory_bot_rails'
+
+  # Use Shoulda for better association testing
+  gem 'shoulda'
 
 end
 
