@@ -23,7 +23,16 @@ RSpec.describe "Get all todos route", :type => :request do
   end
 
   context "When a resource is not found it..." do
+    before(:each) do
+      # Create users and then skip the email confirmation before
+      # saving into the database. 'create_user' is from the
+      # helper 'create_user_helper'
+      create_user
+    end
     it "returns an http response (204)" do
+      login
+      auth_params = get_auth_params(response)
+      get "/todo", headers: auth_params
       expect(response).to have_http_status(204)
     end
   end
