@@ -7,8 +7,9 @@ RSpec.describe 'Post todo routes', :type => :request do
     before(:each) do
       create_user
       login
+      FactoryBot.create(:group)
       auth_params = get_auth_params(response)
-      post "/todo", params: { :title => 'Star Wars', :text => 'This is a texting text for Star wars'}, headers: auth_params
+      post "/group/:group_id/todo", params: { :title => 'Star Wars', :text => 'This is a texting text for Star wars' }, headers: auth_params
     end
 
     it "returns an http response (200)" do

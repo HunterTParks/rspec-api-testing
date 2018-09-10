@@ -12,9 +12,10 @@ RSpec.describe "DELETE Todo items", :type => :request do
   end
   context "When a user submits a request it...." do
     it "returns an http response (204)" do
+      FactoryBot.create(:group)
       FactoryBot.create(:todo)
       auth_params = get_auth_params(response)
-      delete "/todo/1", headers: auth_params
+      delete "/group/:group_id/todo/1", headers: auth_params
       expect(response).to have_http_status(204)
     end
   end
@@ -22,7 +23,7 @@ RSpec.describe "DELETE Todo items", :type => :request do
   context "When a request is invalid" do
     it "returns an http response (404)" do
       auth_params = get_auth_params(response)
-      delete "/todo/1", headers: auth_params
+      delete "/group/:group_id/todo/1", headers: auth_params
       expect(response).to have_http_status(404)
     end
   end

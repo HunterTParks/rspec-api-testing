@@ -10,9 +10,10 @@ RSpec.describe "Get all todos route", :type => :request do
       # helper 'create_user_helper'
       create_user
       FactoryBot.create_list(:todo, 20)
+      FactoryBot.create(:group)
       login
       auth_params = get_auth_params(response)
-      get "/todo", headers: auth_params
+      get "/group/1/todo", headers: auth_params
     end
     it "returns an http response (200)" do
       expect(response).to have_http_status(200)
@@ -28,11 +29,12 @@ RSpec.describe "Get all todos route", :type => :request do
       # saving into the database. 'create_user' is from the
       # helper 'create_user_helper'
       create_user
+      FactoryBot.create(:group)
     end
     it "returns an http response (204)" do
       login
       auth_params = get_auth_params(response)
-      get "/todo", headers: auth_params
+      get "/group/1/todo", headers: auth_params
       expect(response).to have_http_status(204)
     end
   end
