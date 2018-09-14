@@ -28,7 +28,7 @@ RSpec.describe 'Post todo routes', :type => :request do
       create_user
       login
       auth_params = get_auth_params(response)
-      post "/todo", params: { :title => 'Star Wars', :text => nil}, headers: auth_params
+      post "/group/:group_id/todo", params: { :title => 'Star Wars', :text => nil }, headers: auth_params
     end
     it "returns an http response (400)" do
       expect(response).to have_http_status(400)
