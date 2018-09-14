@@ -9,11 +9,13 @@ RSpec.describe "Authentication Requests", type: :request do
     # helper 'create_user_helper'
     create_user
     FactoryBot.create_list(:todo, 20)
+    FactoryBot.create(:group)
   end
 
   context "During User authentication it..." do
     it "returns an http response (401) when authenticated incorrectly" do
-      get "/todo"
+      login
+      get "/group/:group_id/todo"
       expect(response).to have_http_status(401)
     end
     it "returns an access token when you authenticate correctly" do
@@ -28,7 +30,7 @@ RSpec.describe "Authentication Requests", type: :request do
       # gets the authentication token from the login response. It
       # will then be put into a GET request so the user can receive the data.
       auth_params = get_auth_params(response)
-      get "/todo", headers: auth_params
+      get "/group/:group_id/todo", headers: auth_params
       expect(response).to have_http_status(200)
     end
   end
